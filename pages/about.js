@@ -12,7 +12,7 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>Index Page </h1>
+        <h1 className={styles.title}>About Page </h1>
 
         <p className={styles.description}>
           Get started by editing{' '}
