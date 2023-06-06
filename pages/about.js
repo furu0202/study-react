@@ -14,7 +14,7 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <Headline></Headline>
+        <Headline title='About Page' page='about'></Headline>
         <Links></Links>
       </main>
       <Footer></Footer>
