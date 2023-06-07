@@ -14,7 +14,10 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <Headline page='index'></Headline>
+        <Headline
+          page='index'
+          code={<code className={styles.code}>index.js</code>}
+        ></Headline>
         <Links></Links>
       </main>
 

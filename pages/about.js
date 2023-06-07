@@ -14,8 +14,14 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <Headline page='about'></Headline>
-        <Links></Links>
+        <Headline
+          page='about'
+          number={1111}
+          array={[1, 2, 3]}
+          obj={{ foo: 'foo', bar: 'bar' }}
+          boolean
+        ></Headline>
+        <Links> code={<code className={styles.code}>about.js</code>}</Links>
       </main>
       <Footer></Footer>
     </div>
