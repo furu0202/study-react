@@ -1,10 +1,11 @@
-import styles from './Footer.module.css';
+import Link from 'next/link';
+// import styles from './Footer.module.css';
 
 export function Header() {
   return (
     <header>
-      <a href='/'>Index </a>
-      <a href='/'>About </a>
+      <Link href='/'>Index</Link>
+      <Link href='/about'>About</Link>
     </header>
   );
 }
