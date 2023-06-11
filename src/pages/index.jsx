@@ -11,8 +11,15 @@ export default function Home() {
         <title>Index Page</title>
       </Head>
       <Header />
-      <Main page='index' />
+      <button
+        onClick={function () {
+          alert(123);
+        }}
+      >
+        ボタン
+      </button>
 
+      <Main page='index' />
       <Footer></Footer>
     </div>
   );
