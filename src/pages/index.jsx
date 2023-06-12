@@ -5,19 +5,20 @@ import { Main } from 'src/components/Main';
 import { Header } from 'src/components/Header';
 
 export default function Home() {
+  const handleClick = (e) => {
+    console.log(e.target.href);
+    e.preventDefault();
+    // alert(123);
+  };
   return (
     <div className={styles.container}>
       <Head>
         <title>Index Page</title>
       </Head>
       <Header />
-      <button
-        onClick={function () {
-          alert(123);
-        }}
-      >
+      <a href='/about' onClick={handleClick}>
         ボタン
-      </button>
+      </a>
 
       <Main page='index' />
       <Footer></Footer>
