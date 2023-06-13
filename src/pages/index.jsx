@@ -12,16 +12,18 @@ import { useCallback, useEffect } from 'react';
 // };
 
 export default function Home() {
-  // const foo = 1;
-  // const handleClick = useCallback((e) => {
-  //   console.log(e.target.href);
-  //   e.preventDefault();
-  //   alert(foo);
-  // }, []);
+  const foo = 1;
+  const handleClick = useCallback((e) => {
+    console.log(e.target.href);
+    e.preventDefault();
+    alert(foo);
+  }, []);
 
   useEffect(() => {
+    console.log('マウント時');
     document.body.style.backgroundColor = 'lightblue';
     return () => {
+      console.log('アンマウント時');
       document.body.style.backgroundColor = 'pink';
     };
   }, []);
@@ -32,9 +34,9 @@ export default function Home() {
         <title>Index Page</title>
       </Head>
       <Header />
-      {/* <a href='/about' onClick={handleClick}>
+      <a href='/about' onClick={handleClick}>
         ボタン
-      </a> */}
+      </a>
 
       <Main page='index' />
       <Footer></Footer>
