@@ -3,7 +3,7 @@ import styles from 'src/styles/Home.module.css';
 import { Footer } from 'src/components/Footer';
 import { Main } from 'src/components/Main';
 import { Header } from 'src/components/Header';
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 // const handleClick = (e, foo) => {
 //   console.log(e.target.href);
@@ -12,12 +12,11 @@ import { useCallback, useEffect, useState } from 'react';
 // };
 
 export default function Home() {
-  const [foo, setFoo] = useState(10);
+  const [count, setCount] = useState(1);
   // let foo = 1;
   const handleClick = (e) => {
-    setFoo(foo + 1);
+    setCount((count) => count + 1);
     // foo = foo + 1;
-    console.log(foo);
   };
 
   useEffect(() => {
@@ -33,7 +32,7 @@ export default function Home() {
         <title>Index Page</title>
       </Head>
       <Header />
-      <h1>{foo}</h1>
+      <h1>{count}</h1>
       <button onClick={handleClick}>ボタン</button>
 
       <Main page='index' />
