@@ -24,6 +24,7 @@ export default function Home() {
     console.log('foo');
     document.body.style.backgroundColor = 'lightblue';
     return () => {
+      console.log('bar');
       document.body.style.backgroundColor = 'pink';
     };
   }, [count]);
