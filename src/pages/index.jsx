@@ -5,15 +5,10 @@ import { Main } from 'src/components/Main';
 import { Header } from 'src/components/Header';
 import { useCallback, useEffect, useState } from 'react';
 
-// const handleClick = (e, foo) => {
-//   console.log(e.target.href);
-//   e.preventDefault();
-//   alert(foo);
-// };
-
 export default function Home() {
   const [count, setCount] = useState(1);
   const [text, setText] = useState('');
+  const [isShow, setIsShow] = useState(true);
   const handleClick = useCallback(
     (e) => {
       console.log(count);
@@ -24,11 +19,8 @@ export default function Home() {
     [count]
   );
 
-  useEffect(() => {
-    document.body.style.backgroundColor = 'lightblue';
-    return () => {
-      document.body.style.backgroundColor = 'pink';
-    };
+  const handleDisplay = useCallback(() => {
+    setIsShow((isShow) => !isShow);
   }, []);
 
   const handleChange = useCallback((e) => {
@@ -39,14 +31,22 @@ export default function Home() {
     setText(e.target.value.trim());
   }, []);
 
+  useEffect(() => {
+    document.body.style.backgroundColor = 'lightblue';
+    return () => {
+      document.body.style.backgroundColor = 'pink';
+    };
+  }, []);
+
   return (
     <div className={styles.container}>
       <Head>
         <title>Index Page</title>
       </Head>
       <Header />
-      <h1>{count}</h1>
+      {isShow ? <h1>{count}</h1> : null}
       <button onClick={handleClick}>ボタン</button>
+      <button onClick={handleDisplay}>{isShow ? '非表示' : '表示'}</button>
       <input type='text' value={text} onChange={handleChange}></input>
 
       <Main page='index' />
