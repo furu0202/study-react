@@ -13,6 +13,7 @@ import { useCallback, useEffect, useState } from 'react';
 
 export default function Home() {
   const [count, setCount] = useState(1);
+  const [text, setText] = useState('');
   const handleClick = useCallback(
     (e) => {
       console.log(count);
@@ -30,6 +31,14 @@ export default function Home() {
     };
   }, []);
 
+  const handleChange = useCallback((e) => {
+    if (e.target.value.length > 5) {
+      alert('5文字以内以内にしてください');
+      return;
+    }
+    setText(e.target.value.trim());
+  }, []);
+
   return (
     <div className={styles.container}>
       <Head>
@@ -38,6 +47,7 @@ export default function Home() {
       <Header />
       <h1>{count}</h1>
       <button onClick={handleClick}>ボタン</button>
+      <input type='text' value={text} onChange={handleChange}></input>
 
       <Main page='index' />
       <Footer></Footer>
