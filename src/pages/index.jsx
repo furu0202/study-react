@@ -4,12 +4,10 @@ import { Footer } from 'src/components/Footer';
 import { Main } from 'src/components/Main';
 import { Header } from 'src/components/Header';
 import { useCallback, useEffect, useState } from 'react';
-export default function Home() {
-  const [count, setCount] = useState(1);
-  const [text, setText] = useState('');
-  const [isShow, setIsShow] = useState(true);
-  const [array, setArray] = useState([]);
 
+const useCounter = () => {
+  const [count, setCount] = useState(1);
+  const [isShow, setIsShow] = useState(true);
   const handleClick = useCallback(
     (e) => {
       console.log(count);
@@ -23,7 +21,12 @@ export default function Home() {
   const handleDisplay = useCallback(() => {
     setIsShow((prevIsShow) => !prevIsShow);
   }, []);
+  return { count, isShow, handleClick, handleDisplay };
+};
 
+const useInputArray = () => {
+  const [text, setText] = useState('');
+  const [array, setArray] = useState([]);
   const handleChange = useCallback((e) => {
     if (e.target.value.length > 5) {
       alert('5文字以内以内にしてください');
@@ -42,6 +45,12 @@ export default function Home() {
       return newArray;
     });
   }, [text]);
+  return { text, array, handleChange, handleAdd };
+};
+
+export default function Home() {
+  const { count, isShow, handleClick, handleDisplay } = useCounter();
+  const { text, array, handleChange, handleAdd } = useInputArray();
 
   useEffect(() => {
     document.body.style.backgroundColor = 'lightblue';
