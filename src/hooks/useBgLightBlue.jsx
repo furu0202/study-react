@@ -8,7 +8,7 @@ export const useBgLightBlue = () => {
     document.body.style.backgroundColor =
       router.pathname === '/' ? 'lightblue' : 'beige';
     return () => {
-      document.body.style.backgroundColor = 'pink';
+      document.body.style.backgroundColor = '';
     };
   }, [router.pathname]);
 };
