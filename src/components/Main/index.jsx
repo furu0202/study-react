@@ -35,10 +35,10 @@ export function Main(props) {
   }, []);
   return (
     <main className={styles.main}>
-      <Headline page={props.page}>
-        <code className={styles.code}>pages/{props.page}.js</code>
+      <Headline page={props.page} handleReduce={handleReduce}>
+        <code className={styles.code}>{items.length}</code>
       </Headline>
-      <Links items={items} handleReduce={handleReduce} />
+      <Links items={items} />
     </main>
   );
 }
