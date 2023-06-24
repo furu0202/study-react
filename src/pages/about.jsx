@@ -5,7 +5,6 @@ import { Main } from 'src/components/Main';
 import { Header } from 'src/components/Header';
 
 export default function About({
-  count,
   doubleCount,
   isShow,
   handleClick,
